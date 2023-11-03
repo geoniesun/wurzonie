@@ -1,0 +1,24 @@
+---
+title: "hw1_html_PP"
+author: "Leonie Sonntag"
+date: "2023-10-31"
+output: ioslides_presentation
+---
+#This is a html presentiation
+
+
+blabla
+
+##Let´s see
+
+*blabla*
+
+**blablabla**
+
+```{r setup, include=TRUE}
+temp_min <- c(-2,-2,0,3,7,10,12,12,8,5,1,-1)
+plot(temp_min,
+pch=19,
+cex=2,
+col="#00ff0060")
+```
