@@ -1,0 +1,56 @@
+##create branch
+git branch mynewbranch
+git checkout mynewbranch
+
+##merging into master branch
+git checkout master
+git merge mynewbranch
+git branch -d mynewbranch
+
+
+##config my github
+git confic --global user.name "username"
+git config --global user.email "email"
+
+
+
+
+
+##Pulling your fork using the git cli:
+
+
+##check cd and set it first
+
+git init
+git remote add origin https://github.com/yourGitHubUser/repoexample.git
+git pull origin master
+
+##make changes
+git add myfile.R
+git commit -m "my message"
+git push -u origin master
+
+##After you submitted your PR, I can either merge it on github.com (web GUI) or I can do that
+##from the command line: In my local project directory, I create a new branch that contains the
+##Pull Request:
+git checkout -b someone-master master
+git config pull.rebase false
+git pull https://github.com/someone/MB12.git master
+
+##If there are conflicts, they need to be resolved now by editing the conflicting files and commiting
+##the changes, e.g. in RStudio. Then, we can merge into master and push upstream:
+git checkout master
+git merge --no- ff someone-master
+git push origin master
+
+
+##my fork would now be outdated if my pullrequest got merged so I have to "rebase" my fork
+git remote add upstream https://github.com/16EAGLE/MB12.git
+git fetch upstream
+
+##make sure youre in the master, then rebase
+git checkout master
+git rebase upstream/master
+
+##nopw you can pull everything so that the repo matches the other one again:
+git pull -f origin master
