@@ -48,3 +48,11 @@ ggplot(df, aes(a, b) ) +
   theme(
     legend.position='none'
   )
+
+
+#make some 3d
+ggplot(df, aes(a,b)) +
+  geom_hex() +
+  theme_bw()
+
+plot_gg(df)

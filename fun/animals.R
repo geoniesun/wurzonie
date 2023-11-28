@@ -2,7 +2,7 @@
 
 #http://people.fas.harvard.edu/~izahn/posts/useless-but-fun-r-packages/
 
-install.packages("fortunes")
+#install.packages("fortunes")
 library(fortunes)
 #call a quote:
 fortune()
@@ -10,7 +10,7 @@ fortune()
 fortune("memory")
 
 
-install.packages("cowsay")
+#install.packages("cowsay")
 library(cowsay)
 say("hello world")
 #change it a bit
@@ -25,5 +25,8 @@ someone_say_my_fortune <- function() {
   say(paste(fortune(), collapse = "\n"), by = animal)
 }
 
+ 
+
 someone_say_my_fortune()
+
 

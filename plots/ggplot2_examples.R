@@ -29,5 +29,6 @@ ggplot(df) + geom_histogram(aes(a, ..density..), fill="blue", colour="darkgrey")
 ggplot(df, aes(c, color=c)) + geom_point(stat = "count", size = 4 ) 
 
 #try out stuff
-
+library(ggbernie)
+ggplot(df, aes(a,b,color=c)) + geom_point() + geom_bernie(aes(a, b), bernie = "asking")
        
