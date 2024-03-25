@@ -1,6 +1,6 @@
 library(dplyr)
 # Energy production across Europe per Power Unit
-df_energy <- read_csv("data/day2_data_energy_prod_EU_2020-08-03_2020-08-09.csv", show_col_types = FALSE)
+df_energy <- read_csv("C:/eagle/wurzonie/day2_data_energy_prod_EU_2020-08-03_2020-08-09.csv", show_col_types = FALSE)
 
 names(df_energy)
 head(df_energy)
