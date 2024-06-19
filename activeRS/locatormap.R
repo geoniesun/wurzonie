@@ -19,7 +19,7 @@ library(rnaturalearth)
 #changing layout settings here
 setwd("E:/Eagle/courses/Active Remote Sensing Systems/MACKENNZIE")
 
-file <- "E:/Eagle/courses/Active Remote Sensing Systems/MACKENNZIE/forlayoutbaltic/COH_sub.tif"
+file <- "E:/Eagle/courses/Active Remote Sensing Systems/MACKENNZIE/forlayoutmack/coh_sub.tif"
 yourlegendtitle <- "Coherence"
 yourlegendpalette <- "Greys" #or other
 yourcrs <- 3857 #change if needed #25884 is baltic or 3857
@@ -53,15 +53,23 @@ plot(ext)
 
 
 
-europe <- ne_countries(scale = 50, returnclass = "sf", continent = "Europe") 
+europe <- ne_countries(scale = 50, returnclass = "sf", continent = "North America")
 europe_r <- sf::st_transform(europe, crs=3857)
+
 
 ggplot(data = europe) +
   geom_sf()+
-  coord_sf(xlim = c(5, 30), ylim = c(55, 71)) +
+ # coord_sf(xlim = c(5, 30), ylim = c(55, 71)) +
+  coord_sf(xlim = c(-165, -60), ylim = c(80, 40))+
   theme_bw()+
   theme(legend.text = element_text("study site"))+
-  geom_point(aes(x=25.14, y= 65.39), color="red", size=10)
+  theme(axis.text.y = element_text(angle = 90, vjust = 0.5))+
+  geom_point(aes(x=-134.6, y= 69.6), color="red", size=4)+
+  geom_sf_label(aes(x=X, y=Y), label = name_ca)
+  
+  xlab("") +   # Titel der x-Achse entfernen
+  ylab("")+
+  theme(panel.background = element_rect(fill = "lightblue"))
 
 
 
@@ -69,7 +77,7 @@ ggplot(europe) +
   geom_sf()+
   coord_sf(xlim = c(5, 30), ylim = c(55, 71)) 
 
-medium_scale_map <europemedium_scale_map <- ggplot(ext) +
+medium_scale_map  <- ggplot(ext) +
   geom_sf(data = europe) +
   coord_sf(xlim = c(5, 30), ylim = c(55, 71)) 
   #ggtitle("Norden")
